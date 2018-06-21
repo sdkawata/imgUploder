@@ -11,6 +11,11 @@
 |
 */
 
+
+Route::get('/vue/', function() {
+    return view('vue.index');
+});
+
 Route::get('/', 'ImageController@index')->name('index');
 Route::post('/', 'ImageController@store')->name('store');
 Route::get('/{image}', 'ImageController@edit')->name('edit');
