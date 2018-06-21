@@ -18,6 +18,7 @@ window.Vue = require('vue');
 
 
 Vue.component('main-component', require('./components/MainComponent.vue'));
+Vue.component('image-item', require('./components/ImageItem.vue'));
 
 const app = new Vue({
   el: '#app',
