@@ -9,7 +9,8 @@
     <image-item
     v-for="image in images"
     v-bind:key="image.id"
-    v-bind:image="image"/>
+    v-bind:image="image"
+    v-on:edit="editComment"/>
   </div>
 </template>
 <script>
@@ -28,7 +29,13 @@
       	axios.post('/api/', formData).then((response) => {
         this.images.push(response.data.data)
       	})
-      }
+      },
+	  editComment({id, comment}) {
+	    axios.put(`/api/${id}`, {comment}).then((response) => {
+	      let index = this.images.findIndex((image) => image.id === id)
+	      this.$set(this.images, index, response.data.data)
+	    })
+	  }
   	},
     mounted() {
       // コンポーネントが読み込まれるときに実行される。
