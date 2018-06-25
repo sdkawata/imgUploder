@@ -10,6 +10,11 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+const ElementUI = require('element-ui')
+require('element-ui/lib/theme-chalk/index.css')
+const  locale = require('element-ui/lib/locale/lang/ja')
+Vue.use(ElementUI, {locale})
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
