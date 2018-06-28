@@ -5,12 +5,12 @@
     　　コメント：{{image.comment}}<br>
     　　作成日：{{image.created_at.date}}<br>
     　　更新日：{{image.updated_at.date}}<br>
-    　　<a v-if="!commentEditing" @click="commentEditing=true">編集</a>
+    　　<el-button v-if="!commentEditing" @click="commentEditing=true" round>編集</el-button>
 	　　<template v-else>
- 	　　　 <input v-model="comment" type="text"><br>
-    　　 <button @click="editComment">変更確定</button>
+ 	　　　 <el-input v-model="comment" type="text"/><br>
+      <el-button @click="editComment" round type="success">変更確定</el-button>
 	　　</template>
-	　　<button type="submit" v-on:click="$emit('delete')">削除</button>
+	　　<el-button type="danger" v-on:click="$emit('delete')">削除</el-button>
     </el-card>
   </el-col>
 </template>
